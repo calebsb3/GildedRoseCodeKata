@@ -16,6 +16,7 @@ class Program
 
         for (int i = 0; i < 30; i++)
         {
+            Thread.Sleep(1000);
             storefront.Update();
             storefront.printItems();
         }

@@ -20,7 +20,7 @@ public class Storefront
             item.Quality = Math.Min(MaxNonLegendQuality, modifiedQuality);
         }
         else if (item.Name == "Backstage passes"){
-            if (item.NumDaysToSell < 0 && item.Quality != 0)
+            if (item.NumDaysToSell < 0)
             {
                 item.Quality = 0;
             }

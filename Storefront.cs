@@ -60,7 +60,7 @@ public class Storefront
         Console.WriteLine("Current Storefront\n------------------------------");
         foreach (var item in ItemsForSale)
         {
-            Console.WriteLine($"{item.Name} has {item.NumDaysToSell} to sell and has a quality of {item.Quality}\n");
+            Console.WriteLine($"{item.Name} has {item.NumDaysToSell} days to sell with a quality of {item.Quality}\n");
         }
     }
 }

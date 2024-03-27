@@ -3,6 +3,7 @@ public class Storefront
     public required List<Item> ItemsForSale { get; set;}
     private const int MaxNonLegendQuality = 50;
     private const int MinQualityPossible = 0;
+    private const int DoubleFast = 2;
     
     public void Update(){
         foreach (var item in ItemsForSale)
@@ -39,15 +40,12 @@ public class Storefront
             }
         }
         else if (item.Name != "Sulfuras"){
-            if (item.NumDaysToSell >= 0)
-            {
-                modifiedQuality = item.Quality - 1;
-                item.Quality = Math.Max(MinQualityPossible, modifiedQuality);
-            }
-            else {
-                modifiedQuality = item.Quality - 2;
-                item.Quality = Math.Max(MinQualityPossible, modifiedQuality);
-            }
+            var itemIsConjured = item.Name.Contains("Conjured");
+            var decreaseAmount = item.NumDaysToSell >= 0 ? 1 : 2;
+            
+            modifiedQuality = itemIsConjured ? item.Quality - decreaseAmount : item.Quality - decreaseAmount * DoubleFast;
+            item.Quality = Math.Max(MinQualityPossible, modifiedQuality);
+            
         }
     }
 

@@ -43,7 +43,7 @@ public class Storefront
             var itemIsConjured = item.Name.Contains("Conjured");
             var decreaseAmount = item.NumDaysToSell >= 0 ? 1 : 2;
             
-            modifiedQuality = itemIsConjured ? item.Quality - decreaseAmount : item.Quality - decreaseAmount * DoubleFast;
+            modifiedQuality = itemIsConjured ? item.Quality - decreaseAmount * DoubleFast : item.Quality - decreaseAmount;
             item.Quality = Math.Max(MinQualityPossible, modifiedQuality);
             
         }
